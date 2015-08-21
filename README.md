@@ -24,8 +24,10 @@ $ bundle install
 ```
 In PSQL:
 CREATE DATABASE to_do;
+\c to_do
 CREATE TABLE lists (id serial PRIMARY KEY, name varchar);
-CREATE TABLE tasks (id serial PRIMARY KEY, description varchar);
+CREATE TABLE tasks (id serial PRIMARY KEY, description varchar, list_id int);
+CREATE DATABASE to_do_test WITH TEMPLATE to_do;
 ```
 
 Start the webserver:

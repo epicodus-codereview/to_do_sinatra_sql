@@ -2,6 +2,7 @@ require('capybara/rspec')
 require('./app')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
+require('spec_helper')
 
 describe('adding a new list', {:type => :feature}) do
   it('allows a user to click a list to see the tasks and details for it') do
@@ -27,7 +28,7 @@ describe('seeing details for a single list', {:type => :feature}) do
   it('allows a user to click a list to see the tasks and details for it') do
     test_list = List.new({:name => "Coding work", :id => nil})
     test_list.save()
-    test_task = Task.new({:description => "learn SQL", :list_id => test_list.id()})
+    test_task = Task.new({:description => "learn SQL", :list_id => test_list.id(), :id => nil})
     test_task.save()
     visit('/lists')
     click_link(test_list.name())

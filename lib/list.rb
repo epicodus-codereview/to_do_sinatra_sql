@@ -23,7 +23,7 @@ class List
   end
 
   define_method(:==) do |another_list|
-    self.name().==(another_list.name()).&(self.id().==(another_list.id()))
+    self.id().==(another_list.id())
   end
 
   define_singleton_method(:find) do |id|
@@ -42,7 +42,8 @@ class List
     tasks.each() do |task|
       description = task.fetch("description")
       list_id = task.fetch("list_id").to_i()
-      list_tasks.push(Task.new({:description => description, :list_id => list_id}))
+      id = task.fetch("id").to_i()
+      list_tasks.push(Task.new({:description => description, :list_id => list_id, :id => id}))
     end
     list_tasks
   end
