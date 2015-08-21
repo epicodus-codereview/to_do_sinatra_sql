@@ -52,7 +52,7 @@ patch("/lists/:id") do
   erb(:list)
 end
 
-# List 'delete' RESTful route (delete a specific list)
+# List 'destroy' RESTful route (delete a specific list)
 delete("/lists/:id") do
   @list = List.find(params.fetch("id").to_i())
   @list.delete()

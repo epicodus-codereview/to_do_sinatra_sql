@@ -41,3 +41,8 @@ License
 -------
 
 GNU GPL v2. Copyright 2015 **Epicodus**
+
+Notes
+-----
+
+As of now this includes all back-end support for listing, finding, creating, updating, and deleting both tasks and lists, as well as the integration between them in a one-to-many relationship. It also includes front-end Sinatra support for all RESTful route handling of lists (index, new, create, show, edit, update, destroy). Front-end support for tasks is currently limited to listing all tasks that belong to a specific list on that list's show (details) page, adding new tasks to a specific list on that list's show page, and creating a new task (processing the form submission).
