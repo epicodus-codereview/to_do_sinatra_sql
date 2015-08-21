@@ -60,9 +60,10 @@ delete("/lists/:id") do
   erb(:index)
 end
 
-##### TASK RESTFUL ROUTES #####
+##### TASK RESTFUL ROUTES FOR 1-TO-MANY #####
 
 # Task 'create' RESTful route (create a new task)
+# Note: This route would usually be post("/lists/:id/tasks") but I'm leaving it as is here to stay in sync w/ video.
 post("/tasks") do
   description = params.fetch("description")
   list_id = params.fetch("list_id").to_i()
@@ -72,3 +73,4 @@ post("/tasks") do
   erb(:task_success)
 end
 
+# In the future we could potentially add additional routes & views (erb files) to handle updating and deleting tasks.

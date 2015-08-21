@@ -46,3 +46,5 @@ describe('adding tasks to a list', {:type => :feature}) do
     expect(page).to have_content("Success")
   end
 end
+
+# NOTE: Additional integration specs still to come for update & delete on both lists & tasks

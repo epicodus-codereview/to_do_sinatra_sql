@@ -37,4 +37,14 @@ class Task
     end
     found_task
   end
+
+  define_method(:update) do |attributes|
+    @description = attributes.fetch(:description)
+    DB.exec("UPDATE tasks SET description = '#{@description}' WHERE id = #{@id};")
+  end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM tasks WHERE id = #{@id};")
+  end
+
 end

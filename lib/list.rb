@@ -38,7 +38,7 @@ class List
 
   define_method(:tasks) do
     list_tasks = []
-    tasks = DB.exec("SELECT * FROM tasks WHERE list_id = #{self.id()};")
+    tasks = DB.exec("SELECT * FROM tasks WHERE list_id = #{@id};")
     tasks.each() do |task|
       description = task.fetch("description")
       list_id = task.fetch("list_id").to_i()
@@ -50,13 +50,12 @@ class List
 
   define_method(:update) do |attributes|
     @name = attributes.fetch(:name)
-    @id = self.id()
     DB.exec("UPDATE lists SET name = '#{@name}' WHERE id = #{@id};")
   end
 
   define_method(:delete) do
-    DB.exec("DELETE FROM lists WHERE id = #{self.id()};")
-    DB.exec("DELETE FROM tasks WHERE list_id = #{self.id()};")
+    DB.exec("DELETE FROM lists WHERE id = #{@id};")
+    DB.exec("DELETE FROM tasks WHERE list_id = #{@id};")
   end
 
 end

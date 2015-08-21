@@ -46,5 +46,26 @@ describe(Task) do
       expect(Task.find(test_task2.id())).to(eq(test_task2))
     end
   end
+
+  describe("#update") do
+    it("lets you update tasks in the database") do
+      task = Task.new({:description => "learn SQL", :list_id => 1, :id => nil})
+      task.save()
+      task.update({:description => "learn to fly"})
+      expect(task.description()).to(eq("learn to fly"))
+    end
+  end
+
+  describe("#delete") do
+    it("lets you delete a task from the database") do
+      task = Task.new({:description => "learn SQL", :list_id => 1, :id => nil})
+      task.save()
+      task2 = Task.new({:description => "learn to fly", :list_id => 1, :id => nil})
+      task2.save()
+      task.delete()
+      expect(Task.all()).to(eq([task2]))
+    end
+  end
+
 end
 
