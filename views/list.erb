@@ -27,11 +27,8 @@
 <hr>
 
 <div class="container">
-  <a href="/">Home</a>
-  <a href="/lists">View All Lists</a>
+  <a href="/lists/<%= @list.id() %>/edit">Edit <%= @list.name() %> list</a> |
+  <a href="/">Home</a> |
+  <a href="/lists">View All Lists</a> |
   <a href="/lists/new">Add New List</a>
-</div>
-
-<div class="container">
-  <a href="/"><button class="btn">Home</a>
 </div>
